@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ChatBoxController">
+    <padding>
+        <Insets topRightBottomLeft="5.0"/>
+    </padding>
+    <top>
+        <TextArea fx:id="txtContent" prefHeight="450.0" prefWidth="500.0" editable="false"/>
+    </top>
+    <center>
+        <FlowPane hgap="10.0" vgap="10.0">
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+            <TextField fx:id="txtMessage" prefHeight="80.0" prefWidth="400.0"
+                onKeyPressed="#handleKeyPressed"/>
+            <Button onAction="#handleSendActionPerformed" text="Send"/>
+        </FlowPane>
+
+    </center>
+
+
+</BorderPane>

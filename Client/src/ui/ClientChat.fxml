@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ClientChatController">
+    <padding>
+        <Insets topRightBottomLeft="10.0" />
+    </padding>
+    <top>
+        <VBox spacing="10.0">
+            <FlowPane hgap="8.0" vgap="8.0" VBox.vgrow="SOMETIMES">
+                <Label prefWidth="90.0" text="HostIP"/>
+                <TextField fx:id="txtHostIP" text="127.0.0.1"/>
+                <Label text="Port"/>
+                <TextField fx:id="txtPort" text="5000"/>
+            </FlowPane>
+            <FlowPane hgap="8.0" vgap="8.0" VBox.vgrow="SOMETIMES">
+                <Label prefWidth="90.0" text="Username"/>
+                <TextField fx:id="txtUsername" text="Your Name"/>
+                <Button fx:id="btnConnect" onAction="#handleConnectActionPerformed" text="Connect"/>
+            </FlowPane>
+            <FlowPane hgap="8.0" vgap="8.0" VBox.vgrow="SOMETIMES">
+                <Label prefWidth="90.0" text="Attachment"/>
+                <TextField fx:id="txtAttachment" prefWidth="200.0" text="Path"/>
+                <Button fx:id="btnAttach" onAction="#btnAttach" text="Attach"/>
+            </FlowPane>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox >
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+            <TextArea fx:id="txtContent" editable="false"/>
+        </HBox>
+    </center>
+
+    <bottom>
+        <FlowPane hgap="10.0" vgap="10.0">
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+            <TextField fx:id="txtMessage" prefHeight="80.0" prefWidth="400.0"
+                       onKeyPressed="#handleKeyPressed"/>
+            <Button text="Send"
+                    onAction="#handleSendActionPerformed"/>
+        </FlowPane>
+    </bottom>
+</BorderPane>
