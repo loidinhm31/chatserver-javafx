@@ -135,9 +135,9 @@ public class ServerThread implements Runnable {
      */
     public synchronized void broadcast(ClientHandler from, Object msg) throws IOException {
         for (Map.Entry<String, ClientHandler> entry : clientHandlerHashMap.entrySet()) {
-            ClientHandler h = entry.getValue();
-            if (h != from && clientHandlerHashMap.size() > 1) {
-                h.dos.writeUTF(msg.toString());
+            ClientHandler current = entry.getValue();
+            if (current != from && clientHandlerHashMap.size() > 1) {
+                current.dos.writeUTF(msg.toString());
             }
         }
     }
