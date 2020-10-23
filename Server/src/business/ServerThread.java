@@ -49,12 +49,12 @@ public class ServerThread implements Runnable {
                 Socket socket = listen.accept();
 
                 // Create new handler when client connect
-                ClientHandler handler = identifyUser(socket,
+                ClientHandler newClientHandler = identifyUser(socket,
                         new DataInputStream(socket.getInputStream()),
                         new DataOutputStream(socket.getOutputStream()));
 
                 // Create new thread for client and start it
-                new Thread(handler).start();
+                new Thread(newClientHandler).start();
 
             } catch (IOException e) {
                 e.printStackTrace();
